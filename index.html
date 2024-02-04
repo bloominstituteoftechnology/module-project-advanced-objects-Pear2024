@@ -26,8 +26,22 @@
     // 🧠 But there's a catch: once `age` reaches 12, the `ageGracefully` method will have no effect.
     class PeterPan {
 
+      
+    constructor(name) {
+    this.name = name;
+    this.age = 0;
     }
 
+    ageGracefully() {
+
+      let totalAge = 0
+      if (this.age < 12) {
+      totalAge += this.age ++
+      return totalAge
+      }
+   
+    }
+  }
     // 👉 CHALLENGE 2
     // 🧠 Build an AirPlane class. This class allows to instantiate airplanes.
     // 🧠 When instantiating a new plane using this class, we provide a string with the model of the plane.
@@ -39,8 +53,42 @@
     // 🧠 If calling `down` would cause the plane to go below altitude zero, `altitude` is set to 0 and the string "CRASH!" is returned.
     class AirPlane {
 
-    }
+      constructor(model) {
+        this.model = model 
+        this.altitude = 0
+        //this.altitude = altitude 
+      
+      }
 
+      up(meters) {
+       // meters ++
+
+       let result 
+       this.altitude += meters
+       return result = this.altitude
+      }
+      down(meters) {
+       
+       let result 
+       this.altitude -= meters
+        
+       //return result = this.altitude
+   
+       if(this.altitude === 0) {
+        result = 0
+       } else if(this.altitude < 0) {
+        result = "CRASH!"
+        this.altitude = 0
+       } else {
+        result = this.altitude
+       }
+       
+       return result 
+        
+      }
+
+    }
+   
     // 👉 CHALLENGE 3
     // 🧠 Build a Bulb class.
     // 🧠 All new bulbs are initialised with a prop `isOn` and three methods: `turnOn`, `turnOff` and `toggle`.
@@ -48,9 +96,46 @@
     // 🧠 The methods work as one might expect, changing the value of `isOn` to the appropriate Boolean.
     // 🧠 The methods also return one of these two strings: "You turned the bulb ON", or "You turned the bulb OFF".
     class Bulb {
+    
+    constructor(isOn) {
+      this.isOn = false
+      let result
+      //result = "You turned the bulb OFF"
 
     }
+    
+    turnOn () {
+      this.isOn = true
+      let result
+      result = "You turned the bulb ON"
+      return result
+    }
+    turnOff () {
+      this.isOn = false
+      let result
+      result = "You turned the bulb OFF"
+      return result
+    }
 
+    toggle() {
+      let result = []
+      if (this.isOn === true) {
+        this.isOn = false
+        result = "You turned the bulb OFF"
+        this.isOn = false
+        
+      } else {
+        this.isOn = true
+        result = "You turned the bulb ON"
+        this.isOn = true
+        
+      }
+        return result
+    }
+
+
+    }
+  
     // 👉 CHALLENGE 4
     // 🧠 Build a CountDown class that can count down starting at any number we pass to the constructor.
     // 🧠 CountDowns have a `count` method that returns a string in the format "10!".
@@ -66,8 +151,37 @@
     //   minusThree.count() // returns null
     //   minusThree.count() // returns null
     class CountDown {
+      constructor(num) {
+        this.num = num
+      
+      }
 
-    }
+      count() {
+        let result
+       
+          if(this.num < 0) {
+            result = null
+          } else if (this.num === 0) {
+            result = "Liftoff!"
+            this.num --
+          } else {
+            
+            result = `${this.num}!`
+            this.num --
+           
+          }
+          //result += result
+          return result
+
+        }
+        //return result
+      }
+    
+      
+
+    
+    //const CC = new CountDown
+    //console.log(CC.count(4))
 
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
